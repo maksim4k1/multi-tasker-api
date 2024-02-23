@@ -83,8 +83,8 @@ def check_description(description: str) -> bool:
 
 # Email
 def send_email(email: str, message: str, message_title: str) -> bool:
-  sender: str = "maksbazh2004@gmail.com"
-  sender_password: str = "mrgxsiecocytocpc"
+  sender: str = "email" # need to change
+  sender_password: str = "password" # need to change
 
   server = smtplib.SMTP("smtp.gmail.com", 587)
   server.starttls()
