@@ -125,7 +125,7 @@ class AssignedTasksService:
           importance = calculate_importance(task.deadline)
         author: UserProfile = users_service.get_user(task.author_id)
         category: GetCategory = categories_service.get_category(task.category_id)
-        calendar_assigned_task: CalendarAssignedTask = CalendarAssignedTask(id=task.id, type="Задача", title=task.title, description=task.description, importance=importance, author=author, completed=task.completed, category=category)
+        calendar_assigned_task: CalendarAssignedTask = CalendarAssignedTask(id=task.id, type="task", title=task.title, description=task.description, importance=importance, author=author, completed=task.completed, category=category)
         calendar_assigned_tasks.append(calendar_assigned_task)
 
     for subtask in subtasks:
@@ -135,7 +135,7 @@ class AssignedTasksService:
           importance = calculate_importance(subtask.deadline)
         author: UserProfile = users_service.get_user(subtask.author_id)
         category: GetCategory = categories_service.get_category(subtask.category_id)
-        calendar_assigned_subtask: CalendarAssignedTask = CalendarAssignedTask(id=subtask.id, type="Подзадача", title=subtask.title, description=subtask.description, importance=importance, author=author, completed=subtask.completed, category=category)
+        calendar_assigned_subtask: CalendarAssignedTask = CalendarAssignedTask(id=subtask.id, type="subtask", title=subtask.title, description=subtask.description, importance=importance, author=author, completed=subtask.completed, category=category)
         calendar_assigned_tasks.append(calendar_assigned_subtask)
 
     return calendar_assigned_tasks
